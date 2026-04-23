@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akash Kumar Gunturu — Portfolio</title>
+    <meta name="description" content="Portfolio of Akash Kumar Gunturu — AIML student, Technical Coordinator, and builder of impactful tech ecosystems.">
+    <meta name="keywords" content="Akash Kumar Gunturu, Portfolio, AIML, Technical Coordinator, Inspira 2026, IIT Hyderabad, Forge Alumnus">
+    <meta name="author" content="Akash Kumar Gunturu">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated background particles -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>AK<span class="logo-bracket">/&gt;</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#project" class="nav-link">Project</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link nav-link-cta">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge animate-on-scroll">
+                    <span class="badge-dot"></span>
+                    Open to Opportunities
+                </div>
+                <h1 class="hero-name animate-on-scroll">
+                    <span class="hero-greeting">Hello, I'm</span>
+                    <span class="hero-fullname">Akash Kumar<br><span class="hero-fullname">Gunturu</span></span>
+                </h1>
+                <p class="hero-tagline animate-on-scroll">Supporting and scaling tech initiatives through operations and coordination</p>
+                <div class="hero-cta animate-on-scroll">
+                    <a href="#project" class="btn btn-primary">
+                        <span>View My Work</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Get in Touch</span>
+                    </a>
+                </div>
+                <div class="hero-stats animate-on-scroll">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="2000">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Event Attendees</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="3">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Events Managed</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="600">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Participants</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-wrapper animate-on-scroll">
+                <div class="hero-image-container">
+                    <!-- ============================================= -->
+                    <!--  PROFILE PHOTO: Replace the src below with    -->
+                    <!--  your profile photo path, e.g.:               -->
+                    <!--  src="images/profile.jpg"                     -->
+                    <!-- ============================================= -->
+                    <img src="images/image.jpeg" alt="Akash Kumar Gunturu" class="hero-image" id="profile-photo">
+                    <div class="hero-image-glow"></div>
+                    <div class="hero-image-ring"></div>
+                    <div class="hero-image-ring ring-2"></div>
+                </div>
+                <div class="floating-card card-1">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    <span>AIML Student</span>
+                </div>
+                <div class="floating-card card-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg>
+                    <span>Tech Coordinator</span>
+                </div>
+                <div class="floating-card card-3">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    <span>Builder & Leader</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Who I Am</span>
+                <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text animate-on-scroll">
+                    <p class="about-lead">AIML student with proven experience in executing and managing large-scale tech initiatives.</p>
+                    <p>Served as a <strong>Technical Coordinator</strong> for national-level events, contributing to the successful delivery of hackathons and technical programs with <strong>600+ participants</strong>. Skilled in technical operations, cross-team coordination, real-time problem solving, and handling high-pressure environments.</p>
+                    <p>Also experienced in outreach, pitching, and driving participant engagement. Focused on building and contributing to impactful tech ecosystems through <strong>execution and leadership</strong>.</p>
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <!-- UPDATE YOUR CITY BELOW -->
+                            <span>Hyderabad, India</span>
+                        </div>
+                        <div class="detail-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            <span>CSE — Artificial Intelligence & Machine Learning</span>
+                        </div>
+                        <div class="detail-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <!-- ============================================= -->
+                            <!--  EMAIL: Replace with your email address       -->
+                            <!-- ============================================= -->
+                            <a href="mailto:akashkumargunturu18@gmail.com" class="detail-link">akashkumargunturu18@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-journey animate-on-scroll">
+                    <div class="journey-card">
+                        <div class="journey-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <h3>My Philosophy</h3>
+                        <blockquote>
+                            "We bet on winning horses, not on running horses."
+                            <cite>— Vijay Kumar Renikuntla, CEO</cite>
+                        </blockquote>
+                        <p>This mindset shift taught me that in the real world, effort alone doesn't matter — <strong>results and impact do</strong>. I focus on execution, accountability, and outcomes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience" id="experience">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">My Journey</span>
+                <h2 class="section-title">Experience & <span class="gradient-text">Impact</span></h2>
+            </div>
+            <div class="experience-timeline">
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div class="timeline-role">
+                                <h3>Technical Coordinator</h3>
+                                <span class="timeline-company">Forge Alumnus Services Pvt Ltd · Internship</span>
+                            </div>
+                            <div class="timeline-meta">
+                                <span class="timeline-date">March 2026 · 1 month</span>
+                                <span class="timeline-location">Hyderabad, Telangana · On-site</span>
+                            </div>
+                        </div>
+                        <div class="timeline-event">
+                            <div class="event-badge">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                INSPIRA 2026
+                            </div>
+                            <p class="event-desc">A 3-day Career & Corporate Tech Fest organized at IIT Hyderabad (27–29 March 2026), hosting 5000+ students from across India.</p>
+                        </div>
+                        <div class="timeline-body">
+                            <h4>Key Technical Contributions</h4>
+                            <ul class="timeline-list">
+                                <li>Assisted in setting up and managing participant registration systems and data pipelines</li>
+                                <li>Coordinated technical event logistics across 14+ event categories including Hackathon, Ideathon, and AI-focused competitions</li>
+                                <li>Managed participant communication workflows ensuring smooth pre-event onboarding</li>
+                                <li>Supported technical infrastructure for a multi-day fest spanning 3 venues at IIT Hyderabad</li>
+                                <li>Worked cross-functionally with outreach, operations, and speaker coordination teams</li>
+                            </ul>
+                            <div class="timeline-highlight">
+                                <h4>The Hackathon & Code-a-Thon</h4>
+                                <p>During the <strong>36-hour hackathon</strong> and <strong>8-hour Code-a-Thon</strong>, I took on the role of Technical Coordinator — seeing the other side of a hackathon for the first time. Not as a participant, but as the one making it run.</p>
+                                <p class="highlight-quote">"It's not just code. It's systems breaking, debugging under pressure, managing people, and ensuring everything works when it matters the most."</p>
+                            </div>
+                            <div class="timeline-tags">
+                                <span class="tag">Technical Coordination</span>
+                                <span class="tag">Cross-Cultural Communication</span>
+                                <span class="tag">Event Management</span>
+                                <span class="tag">Real-time Troubleshooting</span>
+                                <span class="tag">Team Leadership</span>
+                            </div>
+                        </div>
+                        <div class="timeline-scale">
+                            <div class="scale-item">
+                                <span class="scale-number">2000+</span>
+                                <span class="scale-label">Participants</span>
+                            </div>
+                            <div class="scale-item">
+                                <span class="scale-number">14+</span>
+                                <span class="scale-label">Events</span>
+                            </div>
+                            <div class="scale-item">
+                                <span class="scale-number">3</span>
+                                <span class="scale-label">Days</span>
+                            </div>
+                            <div class="scale-item">
+                                <span class="scale-number">IIT HYD</span>
+                                <span class="scale-label">Venue</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot dot-secondary"></div>
+                    <div class="timeline-card card-insight">
+                        <div class="insight-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                        </div>
+                        <h3>Key Learnings</h3>
+                        <div class="insight-grid">
+                            <div class="insight-item">
+                                <span class="insight-num">01</span>
+                                <p>From debugging systems to understanding people — technology meets real-world leadership.</p>
+                            </div>
+                            <div class="insight-item">
+                                <span class="insight-num">02</span>
+                                <p>Building is one thing. <strong>Selling it is another game entirely.</strong></p>
+                            </div>
+                            <div class="insight-item">
+                                <span class="insight-num">03</span>
+                                <p>Effort will always be respected, but it's <strong>outcomes and impact</strong> that define growth.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">What I Bring</span>
+                <h2 class="section-title">Skills & <span class="gradient-text">Capabilities</span></h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card animate-on-scroll">
+                    <div class="skill-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <h3>Technical & Operations</h3>
+                    <ul class="skill-list">
+                        <li>Technical Coordination</li>
+                        <li>Real-time Troubleshooting</li>
+                        <li>Workflow Management</li>
+                    </ul>
+                    <div class="skill-glow"></div>
+                </div>
+                <div class="skill-card animate-on-scroll">
+                    <div class="skill-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h3>Execution & Leadership</h3>
+                    <ul class="skill-list">
+                        <li>Event Execution</li>
+                        <li>Team Coordination</li>
+                        <li>Task Ownership</li>
+                    </ul>
+                    <div class="skill-glow"></div>
+                </div>
+                <div class="skill-card animate-on-scroll">
+                    <div class="skill-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <h3>Communication & Growth</h3>
+                    <ul class="skill-list">
+                        <li>Pitching</li>
+                        <li>Outreach & Marketing</li>
+                        <li>Stakeholder Communication</li>
+                    </ul>
+                    <div class="skill-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Section -->
+    <section class="section project" id="project">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Featured Work</span>
+                <h2 class="section-title">Top <span class="gradient-text">Project</span></h2>
+            </div>
+            <div class="project-showcase animate-on-scroll">
+                <div class="project-card">
+                    <div class="project-visual">
+                        <div class="project-mockup">
+                            <div class="mockup-header">
+                                <div class="mockup-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <span class="mockup-title">smart-traffic-ai</span>
+                            </div>
+                            <div class="mockup-body">
+                                <div class="code-line"><span class="code-keyword">import</span> <span class="code-string">yolov8</span></div>
+                                <div class="code-line"><span class="code-keyword">import</span> <span class="code-string">reinforcement_learning</span></div>
+                                <div class="code-line"></div>
+                                <div class="code-line"><span class="code-keyword">class</span> <span class="code-func">SmartTrafficAgent</span>:</div>
+                                <div class="code-line indent"><span class="code-keyword">def</span> <span class="code-func">optimize_signal</span>(self, density):</div>
+                                <div class="code-line indent-2"><span class="code-comment"># PPO/DQN RL agent</span></div>
+                                <div class="code-line indent-2"><span class="code-keyword">return</span> self.policy(density)</div>
+                            </div>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="tech-tag">YOLOv8</span>
+                            <span class="tech-tag">PPO/DQN</span>
+                            <span class="tech-tag">SUMO</span>
+                            <span class="tech-tag">Jetson Nano</span>
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-label">R&D / Research Project</div>
+                        <h3 class="project-title">AI-Powered Smart Traffic Control System</h3>
+                        <p class="project-desc">A research project that uses <strong>computer vision</strong> and <strong>reinforcement learning</strong> to replace fixed-cycle traffic signals with an intelligent, adaptive system. It streams live footage from existing CCTV cameras, runs YOLOv8 to detect and classify vehicles in real time, and feeds data into a PPO/DQN reinforcement learning agent that dynamically adjusts signal timings.</p>
+                        <div class="project-features">
+                            <div class="feature-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span>Emergency vehicle auto-prioritization</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span>Multi-intersection coordination</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span>Designed for Indian road conditions</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span>No new cameras needed — uses existing CCTV</span>
+                            </div>
+                        </div>
+                        <div class="project-impact">
+                            <div class="impact-item">
+                                <span class="impact-number">30-40%</span>
+                                <span class="impact-label">Reduction in avg wait time</span>
+                            </div>
+                            <div class="impact-item">
+                                <span class="impact-number">60%</span>
+                                <span class="impact-label">Faster emergency clearance</span>
+                            </div>
+                        </div>
+                        <p class="project-target">Targeted for <strong>R&D incubation</strong>, <strong>DST/SERB grant applications</strong>, and <strong>municipal pilot deployment</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">What Leaders Say</span>
+                <h2 class="section-title">Testimonials from <span class="gradient-text">Mentors</span></h2>
+            </div>
+            <div class="testimonial-grid">
+
+                <!-- Testimonial 1: Vijay Kumar -->
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-quote">
+                        <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609L9.978 5.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H0z"/></svg>
+                    </div>
+                    <p class="testimonial-text">"Being a first-year and taking up responsibility at this scale, especially in high-pressure environments like the hackathon and codeathon, says a lot about your mindset. The fact that you didn't just participate but understood what it takes to make things work when it matters is a big step forward... Effort will always be respected but in the real world, it's outcomes and impact that define growth. The key is to convert effort into results consistently. Proud of the way you've approached this journey. Keep raising your standards — this is just the starting point."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <!-- ============================================= -->
+                            <!--  TESTIMONIAL PHOTO: Replace src with          -->
+                            <!--  Vijay Kumar's photo path, e.g.:              -->
+                            <!--  src="images/vijay-kumar.jpg"                 -->
+                            <!-- ============================================= -->
+                            <img src="images/Vijay.jpg" alt="Vijay Kumar Renikuntla" id="testimonial-photo-vijay">
+                            <div class="avatar-ring"></div>
+                        </div>
+                        <div class="author-info">
+                            <h4>Vijay Kumar Renikuntla</h4>
+                            <p>Founder & CEO, Forge Alumnus Pvt Ltd</p>
+                            <span class="author-subtitle">Building Career Discovery & Development Ecosystem</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2: Harish Kotra -->
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-quote">
+                        <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609L9.978 5.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H0z"/></svg>
+                    </div>
+                    <p class="testimonial-text">"Your hard work will be remembered Akash Kumar Gunturu! Thank you for always being on your feet with anything that was needed!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <!-- ============================================= -->
+                            <!--  TESTIMONIAL PHOTO: Replace src with          -->
+                            <!--  Harish Kotra's photo path, e.g.:             -->
+                            <!--  src="images/harish-kotra.jpg"                -->
+                            <!-- ============================================= -->
+                            <img src="images/harish.jpg" alt="Harish Kotra" id="testimonial-photo-harish">
+                            <div class="avatar-ring"></div>
+                        </div>
+                        <div class="author-info">
+                            <h4>Harish Kotra</h4>
+                            <p>CTO, Forge Alumnus Pvt Ltd</p>
+                            <span class="author-subtitle">Developer Relations Lead — Gaia · AngelHack · Community Lead</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3: Dhananjay Dubey -->
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-quote">
+                        <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609L9.978 5.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H0z"/></svg>
+                    </div>
+                    <p class="testimonial-text">"You owned it like no one else. You took things up and made them happen, were with me during promotions, and stood up whenever it was needed. I never expected this much from you, Akash Kumar Gunturu. Really had a good time with you. Wish you luck and success ahead. Keep evolving, keep growing!!!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <!-- ============================================= -->
+                            <!--  TESTIMONIAL PHOTO: Replace src with          -->
+                            <!--  Dhananjay Dubey's photo path, e.g.:          -->
+                            <!--  src="images/dhananjay-dubey.jpg"             -->
+                            <!-- ============================================= -->
+                            <img src="images/dhananjay.jpg" alt="Dhananjay Dubey" id="testimonial-photo-dhananjay">
+                            <div class="avatar-ring"></div>
+                        </div>
+                        <div class="author-info">
+                            <h4>Dhananjay Dubey</h4>
+                            <p>Technical Lead, Forge Alumnus Pvt Ltd</p>
+                            <span class="author-subtitle">Laravel Developer · Flutter Learner · Podcaster</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section education" id="education">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Foundation</span>
+                <h2 class="section-title">Education & <span class="gradient-text">Learning</span></h2>
+            </div>
+            <div class="education-card animate-on-scroll">
+                <div class="edu-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+                </div>
+                <div class="edu-content">
+                    <div class="edu-badge">2025 – 2029</div>
+                    <h3>B.Tech in Computer Science & Engineering</h3>
+                    <p class="edu-specialization">Specialization: Artificial Intelligence & Machine Learning</p>
+                    <p class="edu-college">MVSR Engineering College, Hyderabad</p>
+                    <span class="edu-year">First Year · Currently Pursuing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Let's Connect</span>
+                <h2 class="section-title">Get in <span class="gradient-text">Touch</span></h2>
+            </div>
+            <div class="contact-container animate-on-scroll">
+                <p class="contact-intro">Interested in collaborating or just want to say hello? I'd love to hear from you.</p>
+                <div class="contact-links">
+                    <a href="mailto:akashkumargunturu18@gmail.com" class="contact-item" id="contact-email">
+                        <!-- ============================================= -->
+                        <!--  EMAIL: Replace href and text below           -->
+                        <!-- ============================================= -->
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div class="contact-text">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">akashkumargunturu18@gmail.com</span>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/akash-kumar-gunturu-b64b40395/" class="contact-item" id="contact-linkedin" target="_blank" rel="noopener noreferrer">
+                        <!-- ============================================= -->
+                        <!--  LINKEDIN: Replace href with your LinkedIn URL -->
+                        <!-- ============================================= -->
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </div>
+                        <div class="contact-text">
+                            <span class="contact-label">LinkedIn</span>
+                            <span class="contact-value">Connect with me</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/akashkumar-1808" class="contact-item" id="contact-github" target="_blank" rel="noopener noreferrer">
+                        <!-- ============================================= -->
+                        <!--  GITHUB: Replace href with your GitHub URL    -->
+                        <!-- ============================================= -->
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        </div>
+                        <div class="contact-text">
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-value">View my code</span>
+                        </div>
+                    </a>
+                    <a href="https://x.com/KumarAkash23323" class="contact-item" id="contact-twitter" target="_blank" rel="noopener noreferrer">
+                        <!-- ============================================= -->
+                        <!--  TWITTER/X: Replace href with your Twitter URL -->
+                        <!-- ============================================= -->
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </div>
+                        <div class="contact-text">
+                            <span class="contact-label">X (Twitter)</span>
+                            <span class="contact-value">Follow me</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>AK<span class="logo-bracket">/&gt;</span>
+                </div>
+                <p class="footer-text">Designed & Built by Akash Kumar Gunturu</p>
+                <p class="footer-year">© 2026 · All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
