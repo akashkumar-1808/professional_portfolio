@@ -4,6 +4,7 @@
 class ParticleCanvas {
     constructor() {
         this.canvas = document.getElementById('particles-canvas');
+        if (!this.canvas) return;
         this.ctx = this.canvas.getContext('2d');
         this.particles = [];
         this.mouse = { x: null, y: null, radius: 150 };
@@ -17,6 +18,10 @@ class ParticleCanvas {
             this.mouse.x = e.x;
             this.mouse.y = e.y;
         });
+        window.addEventListener('mouseout', () => {
+            this.mouse.x = null;
+            this.mouse.y = null;
+        });
         this.createParticles();
         this.animate();
     }
@@ -27,7 +32,7 @@ class ParticleCanvas {
     }
 
     createParticles() {
-        const count = Math.min(80, Math.floor((window.innerWidth * window.innerHeight) / 15000));
+        const count = Math.min(100, Math.floor((window.innerWidth * window.innerHeight) / 12000));
         this.particles = [];
         for (let i = 0; i < count; i++) {
             this.particles.push({
@@ -37,6 +42,8 @@ class ParticleCanvas {
                 speedX: (Math.random() - 0.5) * 0.5,
                 speedY: (Math.random() - 0.5) * 0.5,
                 opacity: Math.random() * 0.5 + 0.1,
+                // Mixed colors between primary (hue 250) and accent (cyan/blue)
+                color: Math.random() > 0.5 ? 'rgba(108, 99, 255, ' : 'rgba(0, 212, 255, '
             });
         }
     }
@@ -60,7 +67,7 @@ class ParticleCanvas {
             // Draw particle
             this.ctx.beginPath();
             this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            this.ctx.fillStyle = `hsla(250, 80%, 72%, ${p.opacity})`;
+            this.ctx.fillStyle = p.color + p.opacity + ')';
             this.ctx.fill();
 
             // Connect nearby particles
@@ -74,7 +81,7 @@ class ParticleCanvas {
                     this.ctx.beginPath();
                     this.ctx.moveTo(p.x, p.y);
                     this.ctx.lineTo(p2.x, p2.y);
-                    this.ctx.strokeStyle = `hsla(250, 60%, 60%, ${0.08 * (1 - dist / 120)})`;
+                    this.ctx.strokeStyle = `rgba(108, 99, 255, ${0.1 * (1 - dist / 120)})`;
                     this.ctx.lineWidth = 0.5;
                     this.ctx.stroke();
                 }
@@ -89,6 +96,14 @@ class ParticleCanvas {
                     const force = (1 - dist / this.mouse.radius) * 0.02;
                     p.x += dx * force;
                     p.y += dy * force;
+                    
+                    // Draw line to mouse
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(p.x, p.y);
+                    this.ctx.lineTo(this.mouse.x, this.mouse.y);
+                    this.ctx.strokeStyle = `rgba(0, 212, 255, ${0.15 * (1 - dist / this.mouse.radius)})`;
+                    this.ctx.lineWidth = 0.5;
+                    this.ctx.stroke();
                 }
             }
         }
@@ -104,6 +119,7 @@ function initNavbar() {
     const navbar = document.getElementById('navbar');
     const navToggle = document.getElementById('nav-toggle');
     const navLinks = document.getElementById('nav-links');
+    if (!navbar) return;
 
     // Scroll class
     window.addEventListener('scroll', () => {
@@ -115,21 +131,23 @@ function initNavbar() {
     });
 
     // Mobile toggle
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-
-    // Close mobile nav on link click
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navLinks.classList.remove('active');
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
         });
-    });
+
+        // Close mobile nav on link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
 
     // Active link highlight on scroll
-    const sections = document.querySelectorAll('.section, .hero');
+    const sections = document.querySelectorAll('section');
     const navLinkEls = document.querySelectorAll('.nav-link:not(.nav-link-cta)');
 
     window.addEventListener('scroll', () => {
@@ -144,7 +162,7 @@ function initNavbar() {
         navLinkEls.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href') === `#${current}`) {
-                link.style.color = 'var(--primary-light)';
+                link.style.color = 'var(--accent)';
             } else {
                 link.style.color = '';
             }
@@ -225,7 +243,10 @@ function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            if(targetId === '#') return;
+            
+            const target = document.querySelector(targetId);
             if (target) {
                 const offset = 80;
                 const top = target.getBoundingClientRect().top + window.scrollY - offset;
@@ -239,40 +260,63 @@ function initSmoothScroll() {
 }
 
 /* ============================================= */
-/*  TYPING EFFECT FOR TAGLINE                    */
+/*  TYPEWRITER EFFECT                            */
 /* ============================================= */
-function initTypingEffect() {
-    const tagline = document.querySelector('.hero-tagline');
-    if (!tagline) return;
+function initTypewriter() {
+    const textElement = document.querySelector('.typewriter-text');
+    if (!textElement) return;
 
-    const text = tagline.textContent;
-    tagline.textContent = '';
-    tagline.style.opacity = '1';
-    tagline.style.borderRight = '2px solid var(--primary)';
-
-    let i = 0;
+    const roles = [
+        "AI/ML Developer", 
+        "Computer Vision Engineer", 
+        "RL Researcher", 
+        "CSE Student @ MVSR"
+    ];
+    
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingDelay = 100;
+    
     function type() {
-        if (i < text.length) {
-            tagline.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, 30);
+        const currentRole = roles[roleIndex];
+        
+        if (isDeleting) {
+            textElement.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+            typingDelay = 50; // Faster deleting
         } else {
-            // Remove cursor after typing
-            setTimeout(() => {
-                tagline.style.borderRight = 'none';
-            }, 1500);
+            textElement.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+            typingDelay = 100; // Normal typing
         }
+        
+        // Logic to switch between typing and deleting
+        if (!isDeleting && charIndex === currentRole.length) {
+            // Pause at end of word
+            isDeleting = true;
+            typingDelay = 2000;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            typingDelay = 500; // Pause before new word
+        }
+        
+        setTimeout(type, typingDelay);
     }
-
-    // Start after hero animations
-    setTimeout(type, 800);
+    
+    // Start after slight delay
+    setTimeout(type, 1000);
 }
 
 /* ============================================= */
-/*  TILT EFFECT ON PROJECT CARD                  */
+/*  TILT EFFECT ON CARDS                         */
 /* ============================================= */
 function initTiltEffect() {
-    const cards = document.querySelectorAll('.project-card, .skill-card');
+    // Only apply on non-touch devices
+    if(window.matchMedia("(hover: none)").matches) return;
+    
+    const cards = document.querySelectorAll('.project-card, .skill-group, .achievement-card, .cert-card, .testimonial-card');
 
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
@@ -281,8 +325,8 @@ function initTiltEffect() {
             const y = e.clientY - rect.top;
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            const rotateX = (y - centerY) / 30;
-            const rotateY = (centerX - x) / 30;
+            const rotateX = (y - centerY) / 40;
+            const rotateY = (centerX - x) / 40;
 
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
         });
@@ -294,41 +338,45 @@ function initTiltEffect() {
 }
 
 /* ============================================= */
-/*  PLACEHOLDER IMAGE HANDLER                    */
+/*  MARQUEE GALLERY JS LOGIC                     */
 /* ============================================= */
-function initPlaceholderImages() {
-    // Create gradient placeholder for images that fail to load
-    const allImages = document.querySelectorAll('img');
-    allImages.forEach(img => {
-        img.addEventListener('error', () => {
-            // Create a canvas to generate a placeholder
-            const canvas = document.createElement('canvas');
-            const size = Math.max(img.width || 200, img.height || 200);
-            canvas.width = size;
-            canvas.height = size;
-            const ctx = canvas.getContext('2d');
+function initMarqueeGallery() {
+    // 1. Fallback for missing images
+    const marqueeImages = document.querySelectorAll('.mcard-img-wrapper img');
+    marqueeImages.forEach(img => {
+        img.addEventListener('error', function() {
+            // Replace with a placeholder
+            this.onerror = null;
+            this.style.display = 'none'; // hide the broken image
+            
+            // Create fallback container
+            const fallback = document.createElement('div');
+            fallback.style.width = '100%';
+            fallback.style.height = '100%';
+            fallback.style.display = 'flex';
+            fallback.style.flexDirection = 'column';
+            fallback.style.alignItems = 'center';
+            fallback.style.justifyContent = 'center';
+            fallback.style.background = 'var(--bg-tertiary)';
+            fallback.style.color = 'var(--text-muted)';
+            fallback.style.fontSize = '2rem';
+            
+            // Add emoji and text
+            fallback.innerHTML = '<div>📷</div><div style="font-size:0.8rem;margin-top:8px;">Photo unavailable</div>';
+            
+            this.parentElement.appendChild(fallback);
+        });
+    });
 
-            // Gradient background
-            const gradient = ctx.createLinearGradient(0, 0, size, size);
-            gradient.addColorStop(0, 'hsl(250, 30%, 18%)');
-            gradient.addColorStop(1, 'hsl(330, 30%, 18%)');
-            ctx.fillStyle = gradient;
-            ctx.fillRect(0, 0, size, size);
-
-            // Initials or icon
-            ctx.fillStyle = 'hsla(250, 60%, 60%, 0.4)';
-            ctx.font = `${size / 3}px Inter, sans-serif`;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-
-            const alt = img.alt || '';
-            const initials = alt.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase();
-            ctx.fillText(initials || '?', size / 2, size / 2);
-
-            img.src = canvas.toDataURL();
+    // 2. Pause on tab hidden
+    document.addEventListener('visibilitychange', () => {
+        const tracks = document.querySelectorAll('.marquee-inner');
+        tracks.forEach(t => {
+            t.style.animationPlayState = document.hidden ? 'paused' : 'running';
         });
     });
 }
+
 
 /* ============================================= */
 /*  INITIALIZE EVERYTHING                        */
@@ -339,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initCounters();
     initSmoothScroll();
-    initTypingEffect();
+    initTypewriter();
     initTiltEffect();
-    initPlaceholderImages();
+    initMarqueeGallery();
 });
